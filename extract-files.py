@@ -56,8 +56,6 @@ blob_fixups: blob_fixups_user_type = {
     ('system/lib64/libxditk_ISP.so',
      'system/lib64/libxditk_ditArchLIB.so'): blob_fixup()
         .replace_needed('libOpenCL.so', 'libOpenCL_system.so'),
-     'system_ext/lib64/libqti-iopd-client_system.so': blob_fixup()
-        .replace_needed('vendor.qti.hardware.iop@2.0.so', 'vendor.qti.hardware.iop@2.0_system.so'),
     'vendor/etc/msm_irqbalance.conf': blob_fixup()
         .regex_replace('IGNORED_IRQ=27,23,38$', 'IGNORED_IRQ=27,23,38,115,332'),
     'vendor/etc/seccomp_policy/qspm.policy': blob_fixup()
@@ -67,9 +65,6 @@ blob_fixups: blob_fixups_user_type = {
     ('vendor/lib/libreference-ril.so',
      'vendor/lib64/libreference-ril.so'): blob_fixup()
         .add_needed('libbase_shim.so'),
-    ('vendor/lib/libqti-perfd.so',
-     'vendor/lib64/libqti-perfd.so'): blob_fixup()
-        .binary_regex_replace(b'sys.asus.dongletype', b'vendor.sys.asus.dongletype'),
     'vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so': blob_fixup()
         .replace_needed('libhidltransport.so', 'libhidlbase_shim.so'),
     'vendor/lib64/libwvhidl.so': blob_fixup()
