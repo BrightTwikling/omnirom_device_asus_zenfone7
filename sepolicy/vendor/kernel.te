@@ -6,3 +6,7 @@ allow kernel log_file:file create_file_perms;
 allow kernel log_file:file rw_file_perms;
 
 #allow kernel mnt_vendor_file:dir search;
+
+# Battery
+allow kernel battery_file:dir rw_dir_perms;
+allow kernel battery_file:file create_file_perms;

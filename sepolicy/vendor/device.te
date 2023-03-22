@@ -12,3 +12,9 @@ type asus_sensors_device, dev_type;
 
 # Storage
 type sysinfo_block_device, dev_type;
+
+# Battery
+type battery_block_device, dev_type;
+
+# Fingerprint
+type fingerprint_device, dev_type;

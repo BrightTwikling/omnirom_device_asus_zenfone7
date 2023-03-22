@@ -23,3 +23,6 @@ allow init lasercsc:process transition;
 allow init asus_storage_exec:file r_file_perms;
 
 get_prop(init, asus_sensors_prop)
+
+# Battery
+allow init battery_file:dir mounton;

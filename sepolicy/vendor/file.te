@@ -36,3 +36,6 @@ type vendor_sysfs_gestures, sysfs_type, fs_type;
 
 # Battery
 type proc_batinfo, fs_type, proc_type;
+
+# Battery
+type battery_file, file_type;
