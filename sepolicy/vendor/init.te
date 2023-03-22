@@ -1,2 +1,4 @@
 get_prop(init, asus_sensors_prop)
 
+# Battery
+allow init battery_file:dir mounton;
