@@ -504,7 +504,7 @@ on post-fs-data
     chmod 0660 /dev/pn553
     chown nfc nfc /dev/pn553
 
-on charger
+on property:init.svc.vendor.charger=running
     trigger charger_QTR
 
 #mount batinfo
