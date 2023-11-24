@@ -65,6 +65,10 @@ PRODUCT_PACKAGES += \
     tune2fs \
     lsof
 
+# Camera
+PRODUCT_PACKAGES += \
+    android.frameworks.sensorservice@1.0.vendor
+
 # Config
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig
