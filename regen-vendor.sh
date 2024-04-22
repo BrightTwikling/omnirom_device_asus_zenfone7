@@ -885,23 +885,6 @@ function as_module() {
 
 presign "app/com.qualcomm.qti.gpudrivers.lahaina.api30/com.qualcomm.qti.gpudrivers.lahaina.api30.apk"
 
-as_module "etc/vintf/manifest/android.hardware.boot@1.1.xml"
-as_module "etc/vintf/manifest/android.hardware.gnss@2.1-service-qti.xml"
-as_module "etc/vintf/manifest/android.hardware.lights-qti.xml"
-as_module "etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-qti-hta.xml"
-as_module "etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-qti.xml"
-as_module "etc/vintf/manifest/android.hardware.sensors@2.0-multihal.xml"
-as_module "etc/vintf/manifest/android.hardware.thermal@2.0-service.qti.xml"
-as_module "etc/vintf/manifest/android.hardware.usb@1.2-service.xml"
-as_module "etc/vintf/manifest/android.hardware.wifi.hostapd.xml"
-as_module "etc/vintf/manifest/c2_manifest_vendor.xml"
-as_module "etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml"
-as_module "etc/vintf/manifest/power.xml"
-as_module "etc/vintf/manifest/vendor.goodix.hardware.biometrics.fingerprint.xml"
-as_module "etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml"
-as_module "etc/vintf/manifest/vendor.qti.hardware.servicetracker@1.2-service.xml"
-as_module "etc/vintf/manifest/vendor.qti.hardware.vibrator.service.xml"
-
 as_module "lib/libthermalclient.so"
 as_module "lib64/libthermalclient.so"
 
