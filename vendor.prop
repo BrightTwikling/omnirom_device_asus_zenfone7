@@ -26,7 +26,6 @@ sys.vendor.shutdown.waittime=500
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 wifi.aware.interface=wifi-aware0
 vendor.qcom.bluetooth.soc=hastings
-ro.sf.lcd_density=420
 persist.vendor.audio_hal.dsp_bit_width_enforce_mode=24
 vendor.audio_hal.period_size=192
 persist.vendor.audio.ambisonic.capture=false
