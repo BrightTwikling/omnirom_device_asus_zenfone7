@@ -156,7 +156,6 @@ persist.sys.rogbootanimation.enable=0
 ro.config.notification_sound=NewMessage.ogg
 ro.config.newmail_sound=NewMail.ogg
 ro.config.calendaralert_sound=CalendarEvent.ogg
-ro.config.alarm_alert=BusyBugs.ogg
 ro.additionalbutton.operation=0
 ro.config.sentmail_sound=SentMail.ogg
 ro.config.ringtone=Feast.ogg
