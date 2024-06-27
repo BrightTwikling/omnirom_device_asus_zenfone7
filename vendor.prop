@@ -158,7 +158,6 @@ ro.config.newmail_sound=NewMail.ogg
 ro.config.calendaralert_sound=CalendarEvent.ogg
 ro.additionalbutton.operation=0
 ro.config.sentmail_sound=SentMail.ogg
-ro.config.ringtone=Feast.ogg
 ro.vendor.asus.vibration_intensity=1
 ro.ril.ecclist=112,911
 vendor.asus.software.optiflex=true
