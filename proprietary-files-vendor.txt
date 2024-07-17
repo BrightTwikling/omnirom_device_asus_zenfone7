@@ -1047,8 +1047,6 @@ vendor/etc/vintf/manifest/vendor.goodix.hardware.biometrics.fingerprint.xml
 vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.servicetracker@1.2-service.xml
 vendor/etc/wifi/p2p_supplicant_overlay.conf
-vendor/etc/wifi/qca6390/WCNSS_qcom_cfg.ini
-vendor/etc/wifi/qca6490/WCNSS_qcom_cfg.ini
 vendor/firmware/CAMERA_ICP.elf
 vendor/firmware/Data.msc
 vendor/firmware/FACE_CDSP_USER_8250.cdsp.prodQ_FACE.elf
@@ -1220,10 +1218,6 @@ vendor/firmware/venus.b18
 vendor/firmware/venus.b19
 vendor/firmware/venus.mdt
 vendor/firmware/wigig/wigig.ini
-vendor/firmware/wlan/qca_cld/COUNTRY
-vendor/firmware/wlan/qca_cld/qca6390/WCNSS_qcom_cfg.ini
-vendor/firmware/wlan/qca_cld/qca6390/wlan_mac.bin
-vendor/firmware/wlan/qca_cld/qca6490/wlan_mac.bin
 vendor/lib/android.hardware.automotive.vehicle@2.0-manager-lib.so
 vendor/lib/android.hardware.camera.provider@2.4-external.so
 vendor/lib/android.hardware.camera.provider@2.4-legacy.so
