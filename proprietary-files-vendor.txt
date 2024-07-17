@@ -1,9 +1,9 @@
 vendor/app/CACertService/CACertService.apk
 vendor/app/CneApp/CneApp.apk
+vendor/app/CneApp/lib/arm64/libvndfwk_detect_jni.qti.so
 vendor/app/IWlanService/IWlanService.apk
 vendor/app/TimeService/TimeService.apk
 vendor/app/com.qualcomm.qti.gpudrivers.kona.api30/com.qualcomm.qti.gpudrivers.kona.api30.apk
-vendor/app/CneApp/lib/arm64/libvndfwk_detect_jni.qti.so
 vendor/bin/ALSPS_sensor_module_number
 vendor/bin/Adapter_ADC
 vendor/bin/Asus2ndAccelSensor_cal
