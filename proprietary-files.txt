@@ -175,7 +175,6 @@ system_ext/app/DeviceInfo/DeviceInfo.apk
 product/app/DeviceStatisticsService/DeviceStatisticsService.apk
 
 # Display
-system/priv-app/AsusVisualMaster/AsusVisualMaster.apk
 product/etc/permissions/com.qti.snapdragon.sdk.display.xml
 product/framework/com.qti.snapdragon.sdk.display.jar
 system_ext/app/colorservice/colorservice.apk
