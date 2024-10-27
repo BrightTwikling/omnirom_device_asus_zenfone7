@@ -57,7 +57,7 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    libcrypto_shim
+    libcrypto_shim.vendor
 
 # Fingerprint
 PRODUCT_PACKAGES += \
