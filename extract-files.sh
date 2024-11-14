@@ -63,6 +63,9 @@ function blob_fixup() {
         sed -i 's|system/product|system_ext|g' "${2}"
         sed -i 's|xml version="2.0"|xml version="1.0"|g' "${2}"
         ;;
+    vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint@2.1.so)
+        sed -i "s/libhidltransport.so/libhidlbase_shim.so/" "${2}"
+        ;;
     vendor/lib64/libwvhidl.so)
         "${PATCHELF}" --add-needed "libcrypto_shim.so" "${2}"
         ;;
