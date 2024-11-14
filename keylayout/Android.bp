@@ -1,0 +1,9 @@
+prebuilt_usr_keylayout {
+    name: "fts_ts.kl",
+    src: "fts_ts.kl",
+}
+
+prebuilt_usr_keylayout {
+    name: "goodixfp.kl",
+    src: "goodixfp.kl",
+}

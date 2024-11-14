@@ -64,10 +64,12 @@ PRODUCT_PACKAGES += \
     libhidlbase_shim
 
 # Input
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/idc/fts_ts.idc:system/usr/idc/fts_ts.idc \
-    $(LOCAL_PATH)/keylayout/fts_ts.kl:system/usr/keylayout/fts_ts.kl \
-    $(LOCAL_PATH)/keylayout/goodixfp.kl:system/usr/keylayout/goodixfp.kl
+PRODUCT_PACKAGES += \
+    fts_ts.idc
+
+PRODUCT_PACKAGES += \
+    fts_ts.kl \
+    goodixfp.kl
 
 # Perf
 PRODUCT_PACKAGES += \
