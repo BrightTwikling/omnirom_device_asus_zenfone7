@@ -80,7 +80,6 @@
 /dev/psensor                                                                                       u:object_r:sensors_device:s0
 
 # Storage
-/(vendor|system/vendor)/bin/asus_osinfo                                                            u:object_r:asus_osinfo_exec:s0
 /(vendor|system/vendor)/bin/ufs_info.sh                                                            u:object_r:asus_storage_exec:s0
 /(vendor|system/vendor)/bin/ddr_info.sh                                                            u:object_r:asus_storage_exec:s0
 
