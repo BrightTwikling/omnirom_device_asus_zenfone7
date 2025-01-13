@@ -1,5 +1,5 @@
 # Ims
-type asus_sp_system_prop, property_type;
+vendor_internal_prop(asus_sp_system_prop)
 
 # Sensor
-type asus_sensors_prop, property_type;
+vendor_internal_prop(asus_sensors_prop)
