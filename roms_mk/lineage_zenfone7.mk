@@ -18,22 +18,66 @@
 # device-specific aspects (drivers) with a device-agnostic
 # product configuration (apps).
 #
+Rom_Name := lineage
+# For CrdroidAndroid
+WITH_GAPPS := true
+# For Matrixx
+WITH_GMS := true
+
+AB_OTA_UPDATER := true
+
+# Overlay
+PRODUCT_ENFORCE_RRO_TARGETS := *
+PRODUCT_ENFORCE_RRO_OVERLAYS += \
+    device/asus/zenfone7/roms_overlays/overlay-lineage/lineage-sdk
 
 # Sample: This is where we'd set a backup provider if we had one
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-# Get the prebuilt list of APNs
-$(call inherit-product, vendor/omni/config/gsm.mk)
+# Soong namespaces
+vendor_build_soong := $(wildcard vendor/*/build/soong)
+PRODUCT_SOONG_NAMESPACES += \
+    $(vendor_build_soong)
+
+# SIM Toolkit
+PRODUCT_PACKAGES += \
+    Stk
+
+# Select Launcher
+ifneq ((findstring Trebuchet, $(shell ls packages/apps )),)
+PRODUCT_PACKAGES += \
+    TrebuchetQuickStep
+
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    TrebuchetQuickStep
+
+else
+PRODUCT_PACKAGES += \
+    Launcher3QuickStep
+
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Launcher3QuickStep
+
+endif
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # must be before including omni part
 TARGET_BOOTANIMATION_SIZE := 1080p
+TARGET_BOOT_ANIMATION_RES := 1080
 
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+# Depending on kind of rom , there are a case that both of common_full_phone.mk and common.mk
+# or another case that only common.mk.
+# So if common_full_phone.mk exists, prioritize it.
+vendor_common_full_phone_mk := $(wildcard vendor/*/config/common_full_phone.mk)
+vendor_common_mk := $(wildcard vendor/*/config/common.mk)
+ifeq ($(vendor_common_full_phone_mk),)
+include $(vendor_common_mk)
+else
+include $(vendor_common_full_phone_mk)
+endif
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/asus/zenfone7/device.mk)
@@ -41,7 +85,7 @@ $(call inherit-product, device/asus/sm8250-common/omni_common.mk)
 
 # Discard inherited values and use our own instead.
 PRODUCT_DEVICE := zenfone7
-PRODUCT_NAME := omni_zenfone7
+PRODUCT_NAME := $(Rom_Name)_zenfone7
 PRODUCT_BRAND := asus
 PRODUCT_MODEL := ASUS_I002D
 PRODUCT_MANUFACTURER := asus
@@ -59,5 +103,5 @@ PRODUCT_BUILD_PROP_OVERRIDES := \
     SystemDevice=$(PRODUCT_SYSTEM_DEVICE) \
     SystemName=$(PRODUCT_SYSTEM_NAME)
 
-OMNI_PRODUCT_PROPERTIES += \
-    ro.build.product=ZS670KS
+# Security patch level from stock
+PLATFORM_SECURITY_PATCH_OVERRIDE := 2022-07-05
