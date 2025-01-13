@@ -63,6 +63,10 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service \
     libhidlbase_shim
 
+# Health for charing control
+PRODUCT_PACKAGES += \
+    vendor.lineage.health-service.default
+
 # Input
 PRODUCT_PACKAGES += \
     fts_ts.idc

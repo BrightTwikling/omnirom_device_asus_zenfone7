@@ -1,3 +1,6 @@
+# Battery
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:qcom,qpnp-smb5/smartchg_stop_charging    u:object_r:vendor_sysfs_battery_supply:s0
+
 # Display
 genfscon proc /hbm_mode                                                 u:object_r:asus_display_proc_exec:s0
 genfscon proc /lcd_brightness                                           u:object_r:asus_display_proc_exec:s0
