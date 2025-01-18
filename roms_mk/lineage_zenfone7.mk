@@ -19,9 +19,6 @@
 # product configuration (apps).
 #
 Rom_Name := lineage
-# For CrdroidAndroid
-WITH_GAPPS := true
-# For Matrixx
 WITH_GMS := true
 
 AB_OTA_UPDATER := true
