@@ -19,7 +19,6 @@
 # product configuration (apps).
 #
 Rom_Name := lineage
-WITH_GMS := true
 
 AB_OTA_UPDATER := true
 
@@ -77,6 +76,7 @@ PRODUCT_SYSTEM_DEVICE := ASUS_I002D
 PRODUCT_SYSTEM_NAME := WW_I002D
 
 PRODUCT_BUILD_PROP_OVERRIDES := \
+    BuildDesc="WW_I002D 12 SKQ1.210821.001/31.0210.0210.324 release-keys" \
     BuildFingerprint=asus/WW_I002D/ASUS_I002D:12/SKQ1.210821.001/31.0210.0210.324:user/release-keys \
     DeviceName=$(PRODUCT_SYSTEM_DEVICE) \
     DeviceProduct=$(PRODUCT_SYSTEM_NAME) \
@@ -85,3 +85,10 @@ PRODUCT_BUILD_PROP_OVERRIDES := \
 
 # Security patch level from stock
 PLATFORM_SECURITY_PATCH_OVERRIDE := 2022-07-05
+
+# Optional FLags
+WITH_GMS := true
+TARGET_ENABLE_BLUR := true
+TARGET_DEFAULT_PIXEL_LAUNCHER := false
+TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := false
+PRODUCT_NO_CAMERA := false
