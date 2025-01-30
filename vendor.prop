@@ -219,6 +219,3 @@ ro.vendor.asus.scale_low_max_amp=130
 # Chipset
 ro.soc.manufacturer=QTI
 ro.soc.model=SM8250
-
-# Display
-ro.surface_flinger.use_content_detection_for_refresh_rate=true
