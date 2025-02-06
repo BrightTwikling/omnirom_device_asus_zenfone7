@@ -37,17 +37,31 @@ fi
 # Default to sanitizing the vendor folder before extraction
 CLEAN_VENDOR=true
 
-while [ "$1" != "" ]; do
-    case $1 in
-        -p | --path )           shift
-                                SRC=$1
-                                ;;
-        -s | --section )        shift
-                                SECTION=$1
-                                CLEAN_VENDOR=false
-                                ;;
-        -n | --no-cleanup )     CLEAN_VENDOR=false
-                                ;;
+while [ "${#}" -gt 0 ]; do
+    case "${1}" in
+        --only-common)
+            ONLY_COMMON=true
+            ;;
+        --only-firmware)
+            ONLY_FIRMWARE=true
+            ;;
+        --only-target)
+            ONLY_TARGET=true
+            ;;
+        -n | --no-cleanup)
+            CLEAN_VENDOR=false
+            ;;
+        -k | --kang)
+            KANG="--kang"
+            ;;
+        -s | --section)
+            SECTION="${2}"
+            shift
+            CLEAN_VENDOR=false
+            ;;
+        *)
+            SRC="${1}"
+            ;;
     esac
     shift
 done
@@ -81,8 +95,8 @@ function blob_fixup() {
 # Initialize the helper
 setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT" false "$CLEAN_VENDOR"
 
-extract "$MY_DIR"/proprietary-files-vendor.txt "$SRC" "$SECTION"
-extract "$MY_DIR"/proprietary-files-product.txt "$SRC" "$SECTION"
-extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
+extract "$MY_DIR"/proprietary-files-vendor.txt "${SRC}" "${KANG}" --section "${SECTION}"
+extract "$MY_DIR"/proprietary-files-product.txt "${SRC}" "${KANG}" --section "${SECTION}"
+extract "$MY_DIR"/proprietary-files.txt "${SRC}" "${KANG}" --section "${SECTION}"
 
 "$MY_DIR"/setup-makefiles.sh
