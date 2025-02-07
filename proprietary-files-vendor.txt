@@ -108,7 +108,7 @@ vendor/bin/hdcp2p2prov
 vendor/bin/hvdcp_opti
 vendor/bin/hw/android.hardware.authsecret@1.0-service-qti
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
-vendor/bin/hw/android.hardware.boot@1.1-service
+#vendor/bin/hw/android.hardware.boot@1.1-service
 vendor/bin/hw/android.hardware.camera.provider@2.4-service_64
 vendor/bin/hw/android.hardware.drm@1.3-service.widevine
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
@@ -375,7 +375,7 @@ vendor/etc/gpt_both0_16GB.bin
 vendor/etc/init.qti.fm.sh
 vendor/etc/init/android.hardware.authsecret@1.0-service-qti.rc
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
-vendor/etc/init/android.hardware.boot@1.1-service.rc
+#vendor/etc/init/android.hardware.boot@1.1-service.rc
 vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc
@@ -1029,13 +1029,13 @@ vendor/etc/ssg/tz_whitelist.json
 vendor/etc/system_properties.xml
 vendor/etc/thermal-engine.conf
 vendor/etc/usb_audio_policy_configuration.xml
-vendor/etc/vintf/manifest/android.hardware.boot@1.1.xml
+#vendor/etc/vintf/manifest/android.hardware.boot@1.1.xml
 vendor/etc/vintf/manifest/android.hardware.gnss@2.1-service-qti.xml
 vendor/etc/vintf/manifest/android.hardware.lights-qti.xml
 vendor/etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-qti-hta.xml
 vendor/etc/vintf/manifest/android.hardware.neuralnetworks@1.3-service-qti.xml
 vendor/etc/vintf/manifest/android.hardware.sensors@2.0-multihal.xml
-vendor/etc/vintf/manifest/android.hardware.wifi.hostapd.xml
+#vendor/etc/vintf/manifest/android.hardware.wifi.hostapd.xml
 vendor/etc/vintf/manifest/c2_manifest_vendor.xml
 vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
 vendor/etc/vintf/manifest/power.xml
@@ -1341,7 +1341,7 @@ vendor/lib/ese_spi_nxp.so
 vendor/lib/ftm_fm_lib.so
 vendor/lib/hal_libnfc.so
 vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
-vendor/lib/hw/android.hardware.boot@1.0-impl-1.1-qti.so
+#vendor/lib/hw/android.hardware.boot@1.0-impl-1.1-qti.so
 vendor/lib/hw/android.hardware.camera.provider@2.4-impl.so
 vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib/hw/android.hardware.gnss@2.1-impl-qti.so
@@ -2048,7 +2048,7 @@ vendor/lib64/ese_spi_nxp.so
 vendor/lib64/ftm_fm_lib.so
 vendor/lib64/hal_libnfc.so
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
-vendor/lib64/hw/android.hardware.boot@1.0-impl-1.1-qti.so
+#vendor/lib64/hw/android.hardware.boot@1.0-impl-1.1-qti.so
 vendor/lib64/hw/android.hardware.camera.provider@2.4-impl.so
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib64/hw/android.hardware.gnss@2.1-impl-qti.so
