@@ -213,4 +213,7 @@
         <item>100</item>  <!-- sensorRadius -->
     </array>
 
+    <!-- Whether to enable Lineage Health Service -->
+    <bool name="config_lineageHealthSupported">true</bool>
+
 </resources>
