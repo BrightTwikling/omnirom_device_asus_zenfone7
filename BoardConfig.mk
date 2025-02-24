@@ -155,9 +155,10 @@ TARGET_MODULE_ALIASES += \
     wlan.ko:qca_cld3_qca6390.ko
 
 # Lineage Health
-TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/power_supply/battery/device/smartchg_stop_charging
+TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/power_supply/battery/input_suspend
 TARGET_HEALTH_CHARGING_CONTROL_CHARGING_ENABLED := 0
 TARGET_HEALTH_CHARGING_CONTROL_CHARGING_DISABLED := 1
+TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
 
 # Partitions
 ifneq ($(ROM_BUILDTYPE),$(filter $(ROM_BUILDTYPE),GAPPS MICROG))
