@@ -85,10 +85,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.1-service
 
-# Camera
-PRODUCT_PACKAGES += \
-    CameraTile
-
 # Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
