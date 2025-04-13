@@ -89,7 +89,8 @@ endif
 
 # ANT+
 PRODUCT_PACKAGES += \
-    AntHalService
+    AntHalService-Soong \
+    com.dsi.ant@1.0.vendor
 
 # Api
 BOARD_SHIPPING_API_LEVEL := 29
