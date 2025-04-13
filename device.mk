@@ -140,6 +140,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.qti
 
+# Device Assertion
+TARGET_OTA_ASSERT_DEVICE := I002D, WW_I002D, ASUS_I002D
+
 # Vibrator
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service
