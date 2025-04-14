@@ -152,9 +152,13 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    hardware/omni/interfaces/power-libperfmgr \
     hardware/google/interfaces \
     hardware/google/pixel
+
+# Soong namespaces
+power_libperfmgr_soong := $(wildcard hardware/*/interfaces/power-libperfmgr)
+PRODUCT_SOONG_NAMESPACES += \
+    $(power_libperfmgr_soong)
 
 # Thermal
 PRODUCT_COPY_FILES += \
