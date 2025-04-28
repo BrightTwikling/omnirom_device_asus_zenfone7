@@ -1,0 +1,5 @@
+runtime_resource_overlay {
+    name: "SystemUIOverlay_zenfone7",
+    theme: "SystemUIOverlay_zenfone7",
+    product_specific: true,
+}

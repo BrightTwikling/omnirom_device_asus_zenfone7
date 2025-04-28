@@ -1,2 +1,10 @@
+allow fsck {
+    vendor_custom_ab_block_device
+    asus_block_device
+    asdf_block_device
+}:blk_file rw_file_perms;
+
+allow fsck fsck:capability { kill };
+
 # Battery
 allow fsck battery_block_device:blk_file rw_file_perms;

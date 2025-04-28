@@ -1,3 +1,6 @@
+# Common Add-on
+sys.vendor.qti.servicetracker.disable=true
+
 ro.vendor.smartcharging=1
 ro.vendor.disableaicharging=1
 

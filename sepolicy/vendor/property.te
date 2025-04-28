@@ -1,3 +1,31 @@
+# Asus default prop
+vendor_internal_prop(asus_laservalue_prop)
+system_public_prop(asus_prop)
+system_public_prop(vendor_asus_prop)
+system_public_prop(vendor_asus_sp_prop)
+
+# Audio
+vendor_internal_prop(vendor_dts_audio_prop)
+
+# Fingerprint
+vendor_internal_prop(vendor_gx_fpd_prop)
+
+# Gps
+vendor_internal_prop(vendor_gps_prop)
+
+# Health
+vendor_internal_prop(vendor_health_prop)
+
+# NFC
+vendor_internal_prop(vendor_nfc_prop)
+
+# Storage
+system_public_prop(vendor_asus_storage_prop_2)
+system_public_prop(vendor_asus_storage_prop)
+
+# Thermal
+vendor_internal_prop(vendor_thermal_prop)
+
 # Ims
 vendor_internal_prop(asus_sp_system_prop)
 

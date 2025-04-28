@@ -20,14 +20,75 @@
 # product configuration (apps).
 #
 
+# Enable updating of APEXes
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
+# Setup dalvik vm configs
+$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
 
+ifneq ($(wildcard vendor/omni/overlay/CarrierConfig),)
+DEVICE_PACKAGE_OVERLAYS += \
+    vendor/omni/overlay/CarrierConfig
+else
+DEVICE_PACKAGE_OVERLAYS += \
+    device/asus/zenfone7/omni/CarrierConfig
+endif
+
 PRODUCT_PACKAGES += \
-    FrameworksResDeviceOverlay \
+    FrameworksResOverlay \
     FrameworksResVendorOverlay \
-    SystemUIDeviceOverlay
+    OmniRomResInternalOverlay \
+    SettingsOverlay_zenfone7 \
+    SettingsProviderOverlay \
+    SystemUIOverlay_zenfone7 \
+    TetheringConfigOverlay \
+    WifiOverlay
+
+# A/B
+AB_OTA_UPDATER := true
+
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    odm \
+    product \
+    system \
+    system_ext \
+    vbmeta \
+    vbmeta_system \
+    vendor
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+    FILESYSTEM_TYPE_system=ext4 \
+    POSTINSTALL_OPTIONAL_system=true
+
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_vendor=true \
+    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
+    FILESYSTEM_TYPE_vendor=ext4 \
+    POSTINSTALL_OPTIONAL_vendor=true
+
+PRODUCT_PACKAGES += \
+    checkpoint_gc \
+    otapreopt_script
+
+# ANT+
+PRODUCT_PACKAGES += \
+    AntHalService-Soong \
+    com.dsi.ant@1.0.vendor
+
+# Audio
+PRODUCT_PACKAGES += \
+    android.hardware.audio@6.0-impl \
+    android.hardware.audio.effect@6.0-impl \
+    android.hardware.audio.service
+
 
 ifeq ($(ROM_BUILDTYPE),$(filter $(ROM_BUILDTYPE),GAPPS))
 # Android Auto
@@ -65,10 +126,49 @@ PRODUCT_PACKAGES += \
     tune2fs \
     lsof
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth.audio@2.1-impl \
+    audio.bluetooth.default
+
+PRODUCT_COPY_FILES +=\
+    frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml
+
+# Boot control
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.2-impl-qti \
+    android.hardware.boot@1.2-impl-qti.recovery \
+    android.hardware.boot@1.2-service
+
+PRODUCT_PACKAGES_DEBUG += \
+    bootctl
+
+# Camera
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl
+
+# Cas
+PRODUCT_PACKAGES += \
+    android.hardware.cas@1.2
+
+# Charger images
+PRODUCT_PACKAGES += \
+    omni_charger_res_images \
+    animation.txt \
+    font_charger.png
+
+# Charger
+PRODUCT_PACKAGES += \
+    libsuspend
+
+# Crypto
+PRODUCT_PACKAGES += \
+    libcrypto-v33
+
 # Config
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig
-    
 
 # Api
 BOARD_SHIPPING_API_LEVEL := 29
@@ -84,6 +184,57 @@ PRODUCT_COPY_FILES += \
 # Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
+# Display
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.mapper@3.0-impl-qti-display \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
+    android.hardware.renderscript@1.0-impl \
+    gralloc.qcom \
+    libion \
+    libtinyalsa \
+    libtinyxml2 \
+    libqdutils \
+    libqservice \
+    libsdmcore \
+    libsdmutils \
+    libvulkan \
+    vendor.qti.hardware.display.allocator-service \
+    vendor.qti.hardware.display.composer-service \
+    vendor.qti.hardware.memtrack-service \
+    libcrypto_shim \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxEvrcEnc \
+    libOmxG711Enc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc
+
+-include hardware/qcom-caf/sm8250/display/config/display-board.mk
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.4.vendor \
+    android.hardware.drm-service.clearkey \
+    libcrypto_shim.vendor
+
+# Exclude vibrator from InputManager
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml
+
+# fastbootd
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.0-impl-mock \
+    fastbootd
+
+# FM
+BOARD_HAVE_QCOM_FM := true
+ifeq ($(BOARD_HAVE_QCOM_FM),true)
+PRODUCT_PACKAGES += \
+    FM2 \
+    libqcomfm_jni \
+    qcom.fmradio
+endif
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -92,6 +243,20 @@ PRODUCT_PACKAGES += \
 # Health for charing control
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
+
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.1-impl-qti \
+    android.hardware.health@2.1-service
+
+# HIDL
+PRODUCT_PACKAGES += \
+    libhidltransport.vendor \
+    libhwbinder.vendor
+
+# Init
+PRODUCT_PACKAGES += \
+    libinit_sm8250
 
 # Input
 PRODUCT_PACKAGES += \
@@ -105,6 +270,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light-service.lineage
 
+
+# Live Wallpapers
+PRODUCT_PACKAGES += \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    VisualizationWallpapers \
+    librs_jni
+
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_codecs_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2.xml \
@@ -112,8 +285,25 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_codecs_performance_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_c2.xml \
     $(LOCAL_PATH)/media/media_codecs_performance_kona.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance_kona.xml
 
+# Mount Point symlinks
+PRODUCT_PACKAGES += \
+    mnt_point_asusfw_symlink \
+    mnt_point_factory_symlink \
+    vendor_bt_firmware_mountpoint \
+    vendor_dsp_mountpoint \
+    vendor_firmware_mnt_mountpoint
+
+# Netutils
+PRODUCT_PACKAGES += \
+    netutils-wrapper-1.0 \
+    libandroid_net
+
 # NFC
 PRODUCT_PACKAGES += \
+    $(RELEASE_PACKAGE_NFC_STACK) \
+    Tag \
+    SecureElement \
+    com.android.nfc_extras \
     android.hardware.nfc@1.2-service \
     android.hardware.secure_element@1.2
 
@@ -130,12 +320,37 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,device/asus/zenfone7/prebuilt/system,system) \
+    $(call find-copy-subdir-files,*,device/asus/zenfone7/prebuilt/product,product) \
     $(call find-copy-subdir-files,*,device/asus/zenfone7/prebuilt/root,recovery/root) \
+    $(call find-copy-subdir-files,*,device/asus/zenfone7/prebuilt/system,system) \
+    $(call find-copy-subdir-files,*,device/asus/zenfone7/prebuilt/system_ext,system_ext) \
     $(call find-copy-subdir-files,*,device/asus/zenfone7/prebuilt/vendor,vendor)
 
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
+# Properties
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+
+# Protobuf
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full \
+    libprotobuf-cpp-full-3.9.1-vendorcompat
+
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.asus \
+    fstab.qcom \
+    fstab.qcom.ramdisk
+
+# RIL
+PRODUCT_PACKAGES += \
+    android.hardware.radio@1.5.vendor \
+    android.hardware.radio.config@1.2.vendor \
+    android.hardware.radio.deprecated@1.0.vendor \
+    android.hardware.secure_element@1.2.vendor \
+    libjsoncpp.vendor \
+    libsqlite.vendor
 
 # Shims
 PRODUCT_PACKAGES += \
@@ -160,6 +375,32 @@ power_libperfmgr_soong := $(wildcard hardware/*/interfaces/power-libperfmgr)
 PRODUCT_SOONG_NAMESPACES += \
     $(power_libperfmgr_soong)
 
+# Systemhelper
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.systemhelper@1.0
+
+# Telephony
+PRODUCT_PACKAGES += \
+    extphonelib \
+    extphonelib-product \
+    extphonelib.xml \
+    extphonelib_product.xml \
+    ims-ext-common \
+    ims_ext_common.xml \
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml \
+    qti-telephony-hidl-wrapper-prd \
+    qti_telephony_hidl_wrapper_prd.xml \
+    qti-telephony-utils \
+    qti_telephony_utils.xml \
+    qti-telephony-utils-prd \
+    qti_telephony_utils_prd.xml \
+    tcmiface
+
+# Telephony extension
+PRODUCT_PACKAGES += telephony-ext
+PRODUCT_BOOT_JARS += telephony-ext
+
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
@@ -170,12 +411,44 @@ PRODUCT_PACKAGES += \
 # Device Assertion
 TARGET_OTA_ASSERT_DEVICE := I002D, WW_I002D, ASUS_I002D
 
+# Update engine
+PRODUCT_PACKAGES += \
+    otapreopt_script \
+    update_engine \
+    update_engine_sideload \
+    update_verifier
+
+PRODUCT_HOST_PACKAGES += \
+    brillo_update_payload
+
+PRODUCT_PACKAGES_DEBUG += \
+    update_engine_client
+
+PRODUCT_BUILD_SUPER_PARTITION := false
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb-service.qti
+
 # Vibrator
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service
 
-# Inherit from asus sm8250-common
-$(call inherit-product, device/asus/sm8250-common/common.mk)
+# Wifi
+PRODUCT_PACKAGES += \
+    android.hardware.wifi-service \
+    hostapd \
+    libwifi-hal-qcom \
+    libwpa_client \
+    wpa_supplicant \
+    wpa_supplicant.conf \
+    libcld80211
+
+# WiFi firmware symlinks
+PRODUCT_PACKAGES += \
+    firmware_wlan_mac.bin_symlink \
+    firmware_WCNSS_qcom_cfg.ini_symlink
 
 # Inherit from vendor blobs
 $(call inherit-product, vendor/asus/zenfone7/zenfone7-vendor.mk)
