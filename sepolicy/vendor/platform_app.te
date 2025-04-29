@@ -29,6 +29,7 @@ allow platform_app system_lib_file:file lock ;
 
 allow platform_app vendor_camera_data_file:dir create_dir_perms;
 allow platform_app vendor_camera_data_file:file create_file_perms;
+
 # Camera for ParameterDB.db
 allow platform_app system_lib_file:file { getattr lock open read };
 

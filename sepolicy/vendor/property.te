@@ -16,8 +16,14 @@ vendor_internal_prop(vendor_gps_prop)
 # Health
 vendor_internal_prop(vendor_health_prop)
 
+# Ims
+vendor_internal_prop(asus_sp_system_prop)
+
 # NFC
 vendor_internal_prop(vendor_nfc_prop)
+
+# Sensor
+vendor_internal_prop(asus_sensors_prop)
 
 # Storage
 system_public_prop(vendor_asus_storage_prop_2)
@@ -25,9 +31,3 @@ system_public_prop(vendor_asus_storage_prop)
 
 # Thermal
 vendor_internal_prop(vendor_thermal_prop)
-
-# Ims
-vendor_internal_prop(asus_sp_system_prop)
-
-# Sensor
-vendor_internal_prop(asus_sensors_prop)

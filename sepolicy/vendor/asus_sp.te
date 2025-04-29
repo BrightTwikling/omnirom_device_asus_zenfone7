@@ -21,6 +21,13 @@ allow asus_sp asusfw_file:file r_file_perms;
 allow asus_sp unlabeled:dir search;
 allow asus_sp unlabeled:file r_file_perms;
 
+allow asus_sp property_socket:sock_file write;
+allow asus_sp block_device:dir search;
+allow asus_sp proc:file r_file_perms;
+
+get_prop(asus_sp, asus_sp_system_prop)
+set_prop(asus_sp, asus_sp_system_prop)
+
 get_prop(asus_sp, build_prop)
 
 get_prop(asus_sp, vendor_asus_prop)
@@ -28,10 +35,3 @@ set_prop(asus_sp, vendor_asus_prop)
 
 get_prop(asus_sp, vendor_asus_sp_prop)
 set_prop(asus_sp, vendor_asus_sp_prop)
-
-allow asus_sp property_socket:sock_file write;
-allow asus_sp block_device:dir search;
-allow asus_sp proc:file r_file_perms;
-
-get_prop(asus_sp, asus_sp_system_prop)
-set_prop(asus_sp, asus_sp_system_prop)

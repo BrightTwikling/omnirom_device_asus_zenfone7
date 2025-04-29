@@ -14,13 +14,10 @@ allow asus_sensors mnt_vendor_file:file rw_file_perms;
 allow asus_sensors sensors_device:chr_file rw_file_perms;
 allow asus_sensors sysfs:file { ioctl read write getattr lock append map open watch watch_reads };
 allow asus_sensors asus_sensors_device:chr_file rw_file_perms;
-
-#get_prop(asus_sensors, vendor_asus_prop)
-
 allow asus_sensors property_socket:sock_file write;
 allow asus_sensors vendor_shell_exec:file entrypoint;
 
 get_prop(asus_sensors, asus_sensors_prop)
 set_prop(asus_sensors, asus_sensors_prop)
 
-
+#get_prop(asus_sensors, vendor_asus_prop)

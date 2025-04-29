@@ -1,3 +1,13 @@
+# Hall Sensor
+allow system_app asus_halls_sysfs:file rw_file_perms;
+
+# Pixelworks
+allow system_app asus_display_proc_exec:file rw_file_perms;
+hal_client_domain(system_app, hal_display_iris)
+
+# Motor
+allow system_app vendor_motor_camera:file rw_file_perms;
+
 binder_call(system_app, hal_camera_default)
 
 allow system_app asus_laser_device:chr_file rw_file_perms;
@@ -31,12 +41,3 @@ allow system_app vendor_sysfs_battery_supply:file { read getattr open };
 # Storage
 get_prop(system_app, vendor_asus_storage_prop)
 get_prop(system_app, vendor_asus_storage_prop_2)
-# Hall Sensor
-allow system_app asus_halls_sysfs:file rw_file_perms;
-
-# Pixelworks
-allow system_app asus_display_proc_exec:file rw_file_perms;
-hal_client_domain(system_app, hal_display_iris)
-
-# Motor
-allow system_app vendor_motor_camera:file rw_file_perms;

@@ -9,6 +9,7 @@ persist.vendor.asus.psconfig.mode               u:object_r:radio_control_prop:s0
 persist.vendor.radio.airplane_mode_on           u:object_r:radio_control_prop:s0
 
 # Asus sp
+persist.vendor.asus.adrt                     u:object_r:vendor_asus_prop:s0
 ro.vendor.config.CID                            u:object_r:vendor_asus_prop:s0
 ro.vendor.config.idcode                         u:object_r:vendor_asus_prop:s0
 ro.vendor.config.versatility                    u:object_r:vendor_asus_prop:s0
@@ -42,9 +43,18 @@ persist.vendor.asus.no.country                  u:object_r:vendor_asus_sp_prop:s
 vendor.x-rr.                                    u:object_r:vendor_asus_sp_prop:s0
 
 # Audio
-vendor.asus.vendor_audiocalibration             u:object_r:vendor_asus_prop:s0
-vendor.dts.audio.                               u:object_r:vendor_dts_audio_prop:s0
-ro.vendor.dts.                                  u:object_r:vendor_dts_audio_prop:s0
+vendor.asus.audiocalibration                                    u:object_r:exported_system_prop:s0
+vendor.audio.calibration.rcv                                      u:object_r:exported_system_prop:s0
+vendor.audio.calibration.spk                                     u:object_r:exported_system_prop:s0
+vendor.audio.calibration.value.range                     u:object_r:exported_system_prop:s0
+vendor.audio.calibration.rcv.value                           u:object_r:exported_system_prop:s0
+vendor.audio.calibration.spk.value                          u:object_r:exported_system_prop:s0
+vendor.asus.vendor_audiocalibration                     u:object_r:vendor_asus_prop:s0
+vendor.use.audio.eu.parameters                              u:object_r:exported_system_prop:s0
+
+# Audio Dts
+vendor.dts.audio.                                                            u:object_r:vendor_dts_audio_prop:s0
+ro.vendor.dts.                                                                  u:object_r:vendor_dts_audio_prop:s0
 
 # BT and Wifi
 ro.vendor.wifimac                               u:object_r:vendor_asus_prop:s0
@@ -61,6 +71,7 @@ vendor.camera.expTimeMax                        u:object_r:asus_prop:s0
 vendor.camera.facing                            u:object_r:asus_prop:s0
 vendor.camera.motiontracking                    u:object_r:asus_prop:s0
 vendor.camera.sound.forced                      u:object_r:vendor_asus_prop:s0
+vendor.sys.asus.camprobe                           u:object_r:vendor_asus_prop:s0
 
 # Charging
 ro.vendor.smartcharging                         u:object_r:vendor_health_prop:s0
@@ -72,19 +83,26 @@ vendor.drm.keystatus                            u:object_r:vendor_display_prop:s
 vendor.debug.drm.keystatus              u:object_r:exported_system_prop:s0
 
 # Fingerprint
-vendor.fp.version.driver                        u:object_r:vendor_gx_fpd_prop:s0
 vendor.asus.fp.wakeup                           u:object_r:vendor_gx_fpd_prop:s0
+vendor.fp.version.driver                        u:object_r:vendor_gx_fpd_prop:s0
 persist.vendor.asus.fp.wakeup                   u:object_r:vendor_gx_fpd_prop:s0
 persist.vendor.asus.fp.wakeup_support           u:object_r:vendor_gx_fpd_prop:s0
+vendor.gf.debug.dump_bigdata_data      u:object_r:vendor_gx_fpd_prop:s0
 vendor.gf.debug.dump_data                       u:object_r:vendor_gx_fpd_prop:s0
 vendor.gf.debug.dump_talog_data                 u:object_r:vendor_gx_fpd_prop:s0
 vendor.gf.debug.whitebox.enabled                u:object_r:vendor_gx_fpd_prop:s0
 vendor.goodix.                                  u:object_r:vendor_gx_fpd_prop:s0
 
+# Gallery
+persist.vendor.sys.cta.security                                  u:object_r:vendor_asus_prop:s0
+
 # Gps
 persist.vendor.asus.agps.ntpinjecttime          u:object_r:vendor_gps_prop:s0
 persist.vendor.asus.agps.injecttime             u:object_r:vendor_gps_prop:s0
 persist.vendor.asus.gps.engstate                u:object_r:vendor_gps_prop:s0
+
+# Ims
+ro.vendor.tc.qkey                                         u:object_r:asus_sp_system_prop:s0
 
 # Motor
 persist.vendor.asus.motor                       u:object_r:vendor_asus_prop:s0
@@ -105,6 +123,16 @@ ro.vendor.odm.tel.                              u:object_r:radio_control_prop:s0
 vendor.odm.tel.                                 u:object_r:radio_control_prop:s0
 vendor.tel.                                     u:object_r:radio_control_prop:s0
 vendor.telephony.default_network                u:object_r:radio_control_prop:s0
+
+# Sensors
+vendor.asus.rstg2k                                                u:object_r:debug_prop:s0
+vendor.asus.rstgy2k                                               u:object_r:debug_prop:s0
+vendor.asus.rstg2k.result                                         u:object_r:asus_sensors_prop:s0
+vendor.asus.rstgy2k.result                                        u:object_r:asus_sensors_prop:s0
+persist.vendor.asus.gyrosensor2calibx                             u:object_r:asus_sensors_prop:s0
+persist.vendor.asus.gyrosensor2caliby                             u:object_r:asus_sensors_prop:s0
+persist.vendor.asus.gyrosensor2calibz                             u:object_r:asus_sensors_prop:s0
+persist.vendor.asus.gyrosensor2calibtime                          u:object_r:asus_sensors_prop:s0
 
 # SIM Card active
 persist.vendor.asus.sim1.enabled                u:object_r:vendor_radio_prop:s0
@@ -129,49 +157,13 @@ vendor.asus.storage.primary.type              u:object_r:vendor_asus_storage_pro
 vendor.asus.storage.primary.ufs_info          u:object_r:vendor_asus_storage_prop_2:s0
 
 # Thermal
+persist.vendor.asus.foregroundapp                                 u:object_r:exported_system_prop:s0
 ro.vendor.thermal                               u:object_r:vendor_thermal_prop:s0
+vendor.asus.foregroundapp                                         u:object_r:vendor_asus_prop:s0
 vendor.asus.thermal_config_id                   u:object_r:vendor_thermal_prop:s0
+vendor.proximity.                                                 u:object_r:vendor_thermal_prop:s0
+vendor.sys.enableDevPerfTHM                                       u:object_r:vendor_asus_prop:s0
+vendor.sys.asus.dongletype                                             u:object_r:vendor_asus_prop:s0
 vendor.thermal.dumpsys                          u:object_r:vendor_thermal_prop:s0
 vendor.thermal.                                 u:object_r:vendor_thermal_prop:s0
 vendor.thermal_                                 u:object_r:vendor_thermal_prop:s0
-
-# Asus_sp
-persist.vendor.asus.adrt                                                u:object_r:vendor_asus_prop:s0
-
-# Audio
-vendor.asus.audiocalibration                                      u:object_r:exported_system_prop:s0
-vendor.audio.calibration.rcv                                      u:object_r:exported_system_prop:s0
-vendor.audio.calibration.spk                                      u:object_r:exported_system_prop:s0
-vendor.audio.calibration.value.range                              u:object_r:exported_system_prop:s0
-vendor.audio.calibration.rcv.value                                u:object_r:exported_system_prop:s0
-vendor.audio.calibration.spk.value                                u:object_r:exported_system_prop:s0
-vendor.use.audio.eu.parameters                                    u:object_r:exported_system_prop:s0
-
-# Camera
-vendor.sys.asus.camprobe                                          u:object_r:vendor_asus_prop:s0
-
-# Gallery
-persist.vendor.sys.cta.security                                  u:object_r:vendor_asus_prop:s0
-
-# Fingerprint
-vendor.gf.debug.dump_bigdata_data                                 u:object_r:vendor_gx_fpd_prop:s0
-
-# Ims
-ro.vendor.tc.qkey                                                 u:object_r:asus_sp_system_prop:s0
-
-# Sensors
-vendor.asus.rstg2k                                                u:object_r:debug_prop:s0
-vendor.asus.rstgy2k                                               u:object_r:debug_prop:s0
-vendor.asus.rstg2k.result                                         u:object_r:asus_sensors_prop:s0
-vendor.asus.rstgy2k.result                                        u:object_r:asus_sensors_prop:s0
-persist.vendor.asus.gyrosensor2calibx                             u:object_r:asus_sensors_prop:s0
-persist.vendor.asus.gyrosensor2caliby                             u:object_r:asus_sensors_prop:s0
-persist.vendor.asus.gyrosensor2calibz                             u:object_r:asus_sensors_prop:s0
-persist.vendor.asus.gyrosensor2calibtime                          u:object_r:asus_sensors_prop:s0
-
-# Termal
-persist.vendor.asus.foregroundapp                                 u:object_r:exported_system_prop:s0
-vendor.proximity.                                                 u:object_r:vendor_thermal_prop:s0
-vendor.asus.foregroundapp                                         u:object_r:vendor_asus_prop:s0
-vendor.sys.enableDevPerfTHM                                       u:object_r:vendor_asus_prop:s0
-vendor.sys.asus.dongletype                                             u:object_r:vendor_asus_prop:s0
