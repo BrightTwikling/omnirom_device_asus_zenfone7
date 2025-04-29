@@ -36,13 +36,11 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_PACKAGES += \
     FrameworksResOverlay \
-    FrameworksResDeviceOverlay \
     FrameworksResVendorOverlay \
     OmniRomResInternalOverlay \
-    SettingsOverlay \
+    SettingsOverlay_zenfone7 \
     SettingsProviderOverlay \
-    SystemUIOverlay \
-    SystemUIDeviceOverlay \
+    SystemUIOverlay_zenfone7 \
     TetheringConfigOverlay \
     WifiOverlay
 
