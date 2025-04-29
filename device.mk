@@ -138,10 +138,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     disable_configstore
 
-# DeviceParts
-PRODUCT_PACKAGES += \
-    DeviceParts
-
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
