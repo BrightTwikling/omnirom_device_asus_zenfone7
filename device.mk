@@ -31,8 +31,15 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay
+
+ifneq ($(wildcard vendor/omni/overlay/CarrierConfig),)
+DEVICE_PACKAGE_OVERLAYS += \
     vendor/omni/overlay/CarrierConfig
+else
+DEVICE_PACKAGE_OVERLAYS += \
+    device/asus/zenfone7/omni/CarrierConfig
+endif
 
 PRODUCT_PACKAGES += \
     FrameworksResOverlay \
