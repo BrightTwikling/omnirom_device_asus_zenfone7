@@ -211,7 +211,8 @@ PRODUCT_PACKAGES += \
     fts_ts.idc
 
 PRODUCT_PACKAGES += \
-    keylayout_data_zenfone7.kl
+    fts_ts.kl \
+    goodixfp.kl
 
 # Lights
 PRODUCT_PACKAGES += \
