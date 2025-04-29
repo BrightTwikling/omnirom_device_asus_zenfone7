@@ -122,8 +122,7 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl \
-    CameraTile
+    android.hardware.camera.provider@2.4-impl
 
 # Cas
 PRODUCT_PACKAGES += \
