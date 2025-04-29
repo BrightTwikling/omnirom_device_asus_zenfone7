@@ -281,6 +281,7 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Ramdisk
 PRODUCT_PACKAGES += \
+    fstab.asus \
     fstab.qcom \
     fstab.qcom.ramdisk
 

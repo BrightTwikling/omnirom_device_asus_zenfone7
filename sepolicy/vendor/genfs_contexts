@@ -4,6 +4,17 @@ genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.q
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:qcom,qpnp-smb5/TypeC_Side_Detect2              u:object_r:vendor_sysfs_battery_supply:s0
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:vadc@3100/iio:device1/in_temp_wp_therm_input   u:object_r:vendor_sysfs_battery_supply:s0
 
+# Battery Cycle Count
+genfscon proc /Batt_Cycle_Count/bat_bs_wr                                                       u:object_r:proc_batinfo:s0
+genfscon proc /Batt_Cycle_Count/bat_percent_wr                                                  u:object_r:proc_batinfo:s0
+genfscon proc /Batt_Cycle_Count/bat_safety_wr                                                   u:object_r:proc_batinfo:s0
+genfscon proc /Batt_Cycle_Count/bat_sd_bs_wr                                                    u:object_r:proc_batinfo:s0
+genfscon proc /Batt_Cycle_Count/bat_sd_percent_wr                                               u:object_r:proc_batinfo:s0
+genfscon proc /Batt_Cycle_Count/batt_safety                                                     u:object_r:proc_batinfo:s0
+genfscon proc /Batt_Cycle_Count/batt_safety_csc                                                 u:object_r:proc_batinfo:s0
+genfscon proc /Batt_Cycle_Count/condition_value                                                 u:object_r:proc_batinfo:s0
+genfscon proc /Batt_Cycle_Count/cycle_count                                                     u:object_r:proc_batinfo:s0
+
 # Camera
 genfscon proc /driver/dualcam_cali                                                              u:object_r:vendor_proc_camera:s0
 

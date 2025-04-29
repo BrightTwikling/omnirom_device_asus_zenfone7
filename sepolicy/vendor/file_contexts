@@ -25,6 +25,13 @@
 # Awk
 /vendor/bin/awk                                                                                    u:object_r:vendor_toolbox_exec:s0
 
+# Battery
+/(vendor|system/vendor)/bin/bat_bs                                                                 u:object_r:batinfo_exec:s0
+/(vendor|system/vendor)/bin/bat_sd_bs                                                              u:object_r:batinfo_exec:s0
+/(vendor|system/vendor)/bin/bat_safety                                                             u:object_r:batinfo_exec:s0
+/(vendor|system/vendor)/bin/bat_percent                                                            u:object_r:batinfo_exec:s0
+/(vendor|system/vendor)/bin/bat_sd_percent                                                         u:object_r:batinfo_exec:s0
+
 # Camera
 /data/misc/omni/client_package_name                                                                u:object_r:omni_data_file:s0
 /dev/stmvl53l1_ranging                                                                             u:object_r:asus_laser_device:s0

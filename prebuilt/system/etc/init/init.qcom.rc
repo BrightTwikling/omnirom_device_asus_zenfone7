@@ -3,3 +3,12 @@ on boot
     write /data/misc/omni/client_package_name 0
     chown cameraserver audio /data/misc/omni/client_package_name
     chmod 0644 /data/misc/omni/client_package_name
+
+on post-fs-data
+    # Battery
+    mount_all /vendor/etc/fstab.asus
+    restorecon_recursive /batinfo
+
+on charger
+    # Battery
+    mount_all /vendor/etc/fstab.asus --early
