@@ -1,5 +1,4 @@
 prebuilt_usr_idc {
     name: "fts_ts.idc",
     src: "fts_ts.idc",
-    vendor: true,
 }
