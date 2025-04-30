@@ -20,4 +20,4 @@ allow asus_sensors vendor_shell_exec:file entrypoint;
 get_prop(asus_sensors, asus_sensors_prop)
 set_prop(asus_sensors, asus_sensors_prop)
 
-get_prop(asus_sensors, vendor_asus_prop)
+#get_prop(asus_sensors, vendor_asus_prop)

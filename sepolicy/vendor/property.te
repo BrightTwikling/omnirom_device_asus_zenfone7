@@ -1,33 +1,33 @@
 # Asus default prop
-type asus_laservalue_prop, property_type;
-type asus_prop, property_type;
-type vendor_asus_prop, property_type;
-type vendor_asus_sp_prop, property_type;
+vendor_internal_prop(asus_laservalue_prop)
+system_public_prop(asus_prop)
+system_public_prop(vendor_asus_prop)
+system_public_prop(vendor_asus_sp_prop)
 
 # Audio
-type vendor_dts_audio_prop, property_type;
+vendor_internal_prop(vendor_dts_audio_prop)
 
 # Fingerprint
-type vendor_gx_fpd_prop, property_type;
+vendor_internal_prop(vendor_gx_fpd_prop)
 
 # Gps
-type vendor_gps_prop, property_type;
+vendor_internal_prop(vendor_gps_prop)
 
 # Health
-type vendor_health_prop, property_type;
+vendor_internal_prop(vendor_health_prop)
 
 # Ims
-type asus_sp_system_prop, property_type;
+vendor_internal_prop(asus_sp_system_prop)
 
 # NFC
-type vendor_nfc_prop, property_type;
+vendor_internal_prop(vendor_nfc_prop)
 
 # Sensor
-type asus_sensors_prop, property_type;
+vendor_internal_prop(asus_sensors_prop)
 
 # Storage
-type vendor_asus_storage_prop_2, property_type;
-type vendor_asus_storage_prop, property_type;
+system_public_prop(vendor_asus_storage_prop_2)
+system_public_prop(vendor_asus_storage_prop)
 
 # Thermal
-type vendor_thermal_prop, property_type;
+vendor_internal_prop(vendor_thermal_prop)
