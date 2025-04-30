@@ -218,7 +218,10 @@ TARGET_USES_MKE2FS := true
 VENDOR_SECURITY_PATCH := 2023-05-01
 
 # Sepolicy
+vendor_omni_sepolicy := $(wildcard vendor/omni/sepolicy/sepolicy.mk)
+ifneq ($(vendor_omni_sepolicy),)
 include vendor/omni/sepolicy/sepolicy.mk
+endif
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
