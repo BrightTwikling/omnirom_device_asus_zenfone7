@@ -221,12 +221,25 @@ VENDOR_SECURITY_PATCH := 2023-05-01
 vendor_omni_sepolicy := $(wildcard vendor/omni/sepolicy/sepolicy.mk)
 ifneq ($(vendor_omni_sepolicy),)
 include vendor/omni/sepolicy/sepolicy.mk
-endif
 include device/qcom/sepolicy_vndr/SEPolicy.mk
+else
+include device/qcom/sepolicy_vndr/SEPolicy.mk
+endif
 
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 PRODUCT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/product/private
+service_contexts_exists = $(shell find device/qcom/sepolicy_vndr/legacy-um/generic/vendor/common  -name service_contexts)
+ifeq ($(service_contexts_exists),)
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+endif
+
+ifneq ($(wildcard vendor/omni/sepolicy/libperfmgr/sepolicy.mk),)
+include  vendor/omni/sepolicy/libperfmgr/sepolicy.mk
+else
+include device/lineage/sepolicy/libperfmgr/sepolicy.mk
+endif
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+
 
 # Treble
 BOARD_VNDK_VERSION := current

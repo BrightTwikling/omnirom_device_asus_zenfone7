@@ -73,9 +73,6 @@
 # Motor Camera
 /dev/asusMotoDrv                                                                                   u:object_r:asus_motor_device:s0
 
-# Power
-/(vendor|system/vendor)/bin/hw/android\.hardware\.power-service-qti               u:object_r:hal_power_default_exec:s0
-
 # Sensors
 /dev/asus2ndAccelSensor                                                                            u:object_r:asus_sensors_device:s0
 /dev/asus2ndGyroSensor                                                                             u:object_r:asus_sensors_device:s0

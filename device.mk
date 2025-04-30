@@ -260,7 +260,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti
+    android.hardware.power-service.lineage-libperfmgr
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
@@ -299,7 +299,14 @@ PRODUCT_PACKAGES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    hardware/google/interfaces \
+    hardware/google/pixel
+
+# Soong namespaces
+power_libperfmgr_soong := $(wildcard hardware/*/interfaces/power-libperfmgr)
+PRODUCT_SOONG_NAMESPACES += \
+    $(power_libperfmgr_soong)
 
 # Systemhelper
 PRODUCT_PACKAGES += \
