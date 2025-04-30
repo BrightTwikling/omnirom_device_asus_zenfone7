@@ -34,10 +34,6 @@ import /vendor/etc/init/hw/init.target.rc
 import /vendor/etc/init/hw/init.qcom.factory.rc
 import /vendor/etc/init/hw/init.qcom.power.rc
 
-#ASUS_BSP +++ frank_tao "[ZS670KS][Thermal] Thermal Service"
-import init.asus.thermald_ZS670KS.rc
-#ASUS_BSP ---  frank_tao "[ZS670KS][Thermal] Thermal Service"
-
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
