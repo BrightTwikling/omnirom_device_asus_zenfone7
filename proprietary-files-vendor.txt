@@ -1280,7 +1280,6 @@ vendor/lib/libbatching.so
 vendor/lib/libbatterylistener.so
 vendor/lib/libbitmlengine.so
 vendor/lib/libbluetooth_audio_session_qti.so
-vendor/lib/libboot_control_qti.so
 vendor/lib/libbt-hidlclient.so
 vendor/lib/libbtnv.so
 vendor/lib/libc2d30_bltlib.so
@@ -1907,7 +1906,6 @@ vendor/lib64/libbatching.so
 vendor/lib64/libbatterylistener.so
 vendor/lib64/libbitmlengine.so
 vendor/lib64/libbluetooth_audio_session_qti.so
-vendor/lib64/libboot_control_qti.so
 vendor/lib64/libbt-hidlclient.so
 vendor/lib64/libbtnv.so
 vendor/lib64/libc2d30_bltlib.so
