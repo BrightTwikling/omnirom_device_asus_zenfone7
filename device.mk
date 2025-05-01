@@ -215,10 +215,13 @@ PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service
 
 # FM
+BOARD_HAVE_QCOM_FM := true
+ifeq ($(BOARD_HAVE_QCOM_FM),true)
 PRODUCT_PACKAGES += \
     FM2 \
     libqcomfm_jni \
     qcom.fmradio
+endif
 
 # Health
 PRODUCT_PACKAGES += \
