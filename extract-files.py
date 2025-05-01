@@ -75,6 +75,22 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libcrypto_shim.so'),
     'vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so': blob_fixup()
         .sig_replace('13 0A 00 94', '1F 20 03 D5'),
+    ('vendor/lib/liblbs_core.so',
+     'vendor/lib64/liblbs_core.so',
+     'vendor/lib/mediacas/libclearkeycasplugin.so',
+     'vendor/lib64/mediacas/libclearkeycasplugin.so',
+     'vendor/lib/mediadrm/libdrmclearkeyplugin.so',
+     'vendor/lib64/mediadrm/libdrmclearkeyplugin.so',
+     'vendor/lib/mediadrm/libwvdrmengine.so',
+     'vendor/lib64/mediadrm/libwvdrmengine.so',
+     'vendor/lib/libwvhidl.so',
+     'vendor/lib64/libwvhidl.so',
+     'vendor/bin/hw/android.hardware.authsecret@1.0-service-qti',
+     'vendor/lib/hw/vendor.qti.hardware.soter@1.0-impl.so',
+     'vendor/lib64/hw/vendor.qti.hardware.soter@1.0-impl.so',
+     'vendor/lib/lib-imsdpl.so'
+     'vendor/lib64/lib-imsdpl.so'): blob_fixup()
+        .replace_needed('libcrypto.so', 'libcrypto-v33.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(

@@ -174,10 +174,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libsuspend
 
-# Crypto
-PRODUCT_PACKAGES += \
-    libcrypto-v33
-
 # Config
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig
@@ -185,6 +181,10 @@ PRODUCT_PACKAGES += \
 # Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
+
+# Crypto
+PRODUCT_PACKAGES += \
+    libcrypto-v33
 
 # Device Assertion
 TARGET_OTA_ASSERT_DEVICE := I002D, WW_I002D, ASUS_I002D
