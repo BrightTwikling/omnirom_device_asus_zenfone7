@@ -1,5 +1,5 @@
 # Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2019 The OmniRom Project
+# Copyright (C) 2019-2025 The OmniRom Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,6 +25,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
+
+PRODUCT_BUILD_SUPER_PARTITION := false
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -78,23 +81,16 @@ PRODUCT_PACKAGES += \
     checkpoint_gc \
     otapreopt_script
 
+# Android Auto
+ifeq ($(ROM_BUILDTYPE),$(filter $(ROM_BUILDTYPE),GAPPS))
+PRODUCT_PACKAGES += \
+    AndroidAutoStub
+endif
+
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService-Soong \
     com.dsi.ant@1.0.vendor
-
-# Audio
-PRODUCT_PACKAGES += \
-    android.hardware.audio@6.0-impl \
-    android.hardware.audio.effect@6.0-impl \
-    android.hardware.audio.service
-
-
-ifeq ($(ROM_BUILDTYPE),$(filter $(ROM_BUILDTYPE),GAPPS))
-# Android Auto
-PRODUCT_PACKAGES += \
-    AndroidAutoStub
-endif
 
 # Additional apps
 PRODUCT_PACKAGES += \
@@ -125,6 +121,22 @@ PRODUCT_PACKAGES += \
     mke2fs \
     tune2fs \
     lsof
+
+# Api
+BOARD_SHIPPING_API_LEVEL := 29
+PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
+
+# Audio
+PRODUCT_PACKAGES += \
+    android.hardware.audio@6.0-impl \
+    android.hardware.audio.effect@6.0-impl \
+    android.hardware.audio.service
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/audio_effects_ZS670KS.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
+    $(LOCAL_PATH)/audio/audio_policy_configuration_ZS670KS.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/audio/audio_policy_configuration_ZS670KS.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/audio/audio_policy_volumes_ZS670KS.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes_ZS670KS.xml
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -170,20 +182,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig
 
-# Api
-BOARD_SHIPPING_API_LEVEL := 29
-PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
-
-# audio
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_effects_ZS670KS.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
-    $(LOCAL_PATH)/audio/audio_policy_configuration_ZS670KS.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration.xml \
-    $(LOCAL_PATH)/audio/audio_policy_configuration_ZS670KS.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-    $(LOCAL_PATH)/audio/audio_policy_volumes_ZS670KS.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes_ZS670KS.xml
-
 # Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
+
+# Device Assertion
+TARGET_OTA_ASSERT_DEVICE := I002D, WW_I002D, ASUS_I002D
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
@@ -227,6 +232,10 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     fastbootd
 
+# Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.1-service
+
 # FM
 BOARD_HAVE_QCOM_FM := true
 ifeq ($(BOARD_HAVE_QCOM_FM),true)
@@ -236,18 +245,14 @@ PRODUCT_PACKAGES += \
     qcom.fmradio
 endif
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service
-
-# Health for charing control
-PRODUCT_PACKAGES += \
-    vendor.lineage.health-service.default
-
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl-qti \
     android.hardware.health@2.1-service
+
+# Health for charing control
+PRODUCT_PACKAGES += \
+    vendor.lineage.health-service.default
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -269,7 +274,6 @@ PRODUCT_PACKAGES += \
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light-service.lineage
-
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
@@ -300,12 +304,12 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.2-service \
+    android.hardware.secure_element@1.2 \
     $(RELEASE_PACKAGE_NFC_STACK) \
     Tag \
     SecureElement \
-    com.android.nfc_extras \
-    android.hardware.nfc@1.2-service \
-    android.hardware.secure_element@1.2
+    com.android.nfc_extras
 
 # Perf
 PRODUCT_PACKAGES += \
@@ -321,16 +325,16 @@ PRODUCT_COPY_FILES += \
 # Prebuilt
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,device/asus/zenfone7/prebuilt/product,product) \
-    $(call find-copy-subdir-files,*,device/asus/zenfone7/prebuilt/root,recovery/root) \
     $(call find-copy-subdir-files,*,device/asus/zenfone7/prebuilt/system,system) \
     $(call find-copy-subdir-files,*,device/asus/zenfone7/prebuilt/system_ext,system_ext) \
+    $(call find-copy-subdir-files,*,device/asus/zenfone7/prebuilt/root,recovery/root) \
     $(call find-copy-subdir-files,*,device/asus/zenfone7/prebuilt/vendor,vendor)
-
-PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Properties
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Protobuf
 PRODUCT_PACKAGES += \
@@ -342,6 +346,10 @@ PRODUCT_PACKAGES += \
     fstab.asus \
     fstab.qcom \
     fstab.qcom.ramdisk
+
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors-service.multihal
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -359,10 +367,6 @@ PRODUCT_PACKAGES += \
 # Soundtrigger
 PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.2-impl
-
-# Sensors
-PRODUCT_PACKAGES += \
-    android.hardware.sensors-service.multihal
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -408,9 +412,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.qti
 
-# Device Assertion
-TARGET_OTA_ASSERT_DEVICE := I002D, WW_I002D, ASUS_I002D
-
 # Update engine
 PRODUCT_PACKAGES += \
     otapreopt_script \
@@ -423,9 +424,6 @@ PRODUCT_HOST_PACKAGES += \
 
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
-
-PRODUCT_BUILD_SUPER_PARTITION := false
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # USB
 PRODUCT_PACKAGES += \
