@@ -193,7 +193,15 @@ PRODUCT_PACKAGES += \
     libvulkan \
     vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.composer-service \
-    vendor.qti.hardware.memtrack-service
+    vendor.qti.hardware.memtrack-service \
+    libcrypto_shim \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxEvrcEnc \
+    libOmxG711Enc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVenc
 
 -include hardware/qcom-caf/sm8250/display/config/display-board.mk
 
