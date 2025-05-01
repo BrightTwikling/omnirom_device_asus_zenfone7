@@ -174,6 +174,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libsuspend
 
+# Config
+PRODUCT_PACKAGES += \
+    SimpleDeviceConfig
+
 # Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
