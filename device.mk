@@ -92,6 +92,36 @@ PRODUCT_PACKAGES += \
     AntHalService-Soong \
     com.dsi.ant@1.0.vendor
 
+# Additional apps
+PRODUCT_PACKAGES += \
+    WallpaperCropper2 \
+    MatLog \
+
+# /system_ext packages
+PRODUCT_PACKAGES += \
+    Provision \
+    WallpaperCropper
+
+ifeq ($(ROM_BUILDTYPE),GAPPS)
+PRODUCT_PACKAGES += \
+    Launcher3QuickStepGoogle
+else
+PRODUCT_PACKAGES += \
+    Launcher3QuickStepMock
+endif
+
+# Additional tools
+PRODUCT_PACKAGES += \
+    vim \
+    e2fsck \
+    mkfs.exfat \
+    vncflinger \
+    vncpasswd \
+    fsck.exfat \
+    mke2fs \
+    tune2fs \
+    lsof
+
 # Api
 BOARD_SHIPPING_API_LEVEL := 29
 PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
