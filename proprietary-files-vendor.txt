@@ -1293,7 +1293,6 @@ vendor/lib/libcdsprpc.so
 vendor/lib/libchiarcutils.so
 vendor/lib/libchilog.so
 vendor/lib/libcirrusspkrprot.so
-vendor/lib/libcld80211.so
 vendor/lib/libcne.so;DISABLE_CHECKELF
 vendor/lib/libcneapiclient.so
 vendor/lib/libcneoplookup.so
@@ -1934,7 +1933,6 @@ vendor/lib64/libcdsprpc.so
 vendor/lib64/libchiarcutils.so
 vendor/lib64/libchilog.so
 vendor/lib64/libcirrusspkrprot.so
-vendor/lib64/libcld80211.so
 vendor/lib64/libcne.so;DISABLE_CHECKELF
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneoplookup.so

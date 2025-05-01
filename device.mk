@@ -445,7 +445,8 @@ PRODUCT_PACKAGES += \
     libwifi-hal-qcom \
     libwpa_client \
     wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
+    libcld80211
 
 # WiFi firmware symlinks
 PRODUCT_PACKAGES += \
