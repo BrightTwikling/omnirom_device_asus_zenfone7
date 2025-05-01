@@ -170,6 +170,10 @@ PRODUCT_PACKAGES += \
     animation.txt \
     font_charger.png
 
+# Charger
+PRODUCT_PACKAGES += \
+    libsuspend
+
 # Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
