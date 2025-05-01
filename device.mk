@@ -355,6 +355,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.multihal
 
+# RIL
+PRODUCT_PACKAGES += \
+    android.hardware.radio-service.compat \
+    android.hardware.radio@1.5.vendor \
+    android.hardware.radio.config@1.2.vendor \
+    android.hardware.radio.deprecated@1.0.vendor \
+    android.hardware.secure_element@1.2.vendor \
+    libjsoncpp.vendor \
+    libsqlite.vendor
+
 # Shims
 PRODUCT_PACKAGES += \
     libgui_shim
