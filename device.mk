@@ -174,6 +174,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libsuspend
 
+# Additional native libraries
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
 # Config
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig
@@ -338,8 +342,8 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Protobuf
 PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full \
-    libprotobuf-cpp-full-3.9.1-vendorcompat
+    libprotobuf-cpp-full-vendorcompat \
+    libprotobuf-cpp-lite-vendorcompat
 
 # Ramdisk
 PRODUCT_PACKAGES += \
