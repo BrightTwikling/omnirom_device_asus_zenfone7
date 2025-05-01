@@ -174,6 +174,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     disable_configstore
 
+# Device Assertion
+TARGET_OTA_ASSERT_DEVICE := I002D, WW_I002D, ASUS_I002D
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
