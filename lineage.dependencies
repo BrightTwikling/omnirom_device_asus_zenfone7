@@ -1,0 +1,28 @@
+[
+ {
+   {
+    "remote": "github",
+    "repository": "BrightTwikling/omnirom_kernel_asus_sm8250",
+    "target_path": "kernel/asus/sm8250",
+    "revision": "android-15"
+   },
+   {
+    "remote": "github",
+    "repository": "BrightTwikling/omnirom_hardware_qcom_display",
+    "target_path": "hardware/qcom-caf/sm8250/display",
+    "revision": "android-15-sm8250"
+   },
+   {
+    "remote": "github",
+    "repository": "BrightTwikling/BlissRoms_prebuilts_clang_host_linux-x86_clang-r416183b1",
+    "target_path": "prebuilts/clang/host/linux-x86/clang-r416183b1",
+    "revision": "universe"
+   },
+   {
+    "remote": "github",
+    "repository": "crdroidandroid/android_packages_apps_Matlog",
+    "target_path": "packages/apps/Matlog",
+    "revision": "15.0"
+   }
+  }
+]
