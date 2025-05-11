@@ -1,1 +1,4 @@
 set_prop(vendor_location, vendor_gps_prop)
+
+#============= vendor_location ==============
+allow vendor_location vendor_sysfs_soc_sensitive:file read;

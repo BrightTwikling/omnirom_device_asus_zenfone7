@@ -4,3 +4,6 @@ allow vendor_hal_gnss_qti init:unix_stream_socket connectto;
 allow vendor_hal_gnss_qti vendor_proc_evt:file rw_file_perms;
 
 set_prop(vendor_hal_gnss_qti, vendor_gps_prop)
+
+#============= vendor_hal_gnss_qti ==============
+allow vendor_hal_gnss_qti vendor_pd_locater_dbg_prop:file read;

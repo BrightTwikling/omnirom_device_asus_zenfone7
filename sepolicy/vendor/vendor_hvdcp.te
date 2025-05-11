@@ -1,2 +1,5 @@
 get_prop(vendor_hvdcp, vendor_asus_prop)
 get_prop(vendor_hvdcp, vendor_health_prop)
+
+#============= vendor_hvdcp ==============
+allow vendor_hvdcp kmsg_device:chr_file { getattr write };

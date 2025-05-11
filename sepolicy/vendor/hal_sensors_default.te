@@ -9,3 +9,6 @@ set_prop(hal_sensors_default, vendor_asus_prop)
 
 get_prop(hal_sensors_default, vendor_thermal_prop)
 set_prop(hal_sensors_default, vendor_thermal_prop)
+
+#============= hal_sensors_default ==============
+allow hal_sensors_default vendor_diag_device:chr_file { read write };
